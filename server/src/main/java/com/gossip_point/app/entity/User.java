@@ -3,6 +3,7 @@ package com.gossip_point.app.entity;
 
 import java.util.Objects;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -12,12 +13,20 @@ import jakarta.persistence.Id;
 public class User {
 
 	 @Id
-	 @GeneratedValue(strategy=GenerationType.AUTO)
-	 private Integer id;
-	 private String fullname;
-	 private String email;
-	 private String profile_picture;
-	 private String password;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Integer id;
+    
+    @Column(nullable = false)
+    private String fullname;
+    
+    @Column(unique = true, nullable = false)
+    private String email;
+    
+    private String profile_picture;
+    
+    @Column(nullable = false)
+    private String password;
+
 	 
 	 public User() {
 		 

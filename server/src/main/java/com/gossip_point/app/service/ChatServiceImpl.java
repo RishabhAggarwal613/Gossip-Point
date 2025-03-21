@@ -136,11 +136,7 @@ public class ChatServiceImpl implements ChatService {
 		throw new ChatException("chat not found exception"+chatId);	
 	}
 		
-		
 	
-
-
-
 	@Override
 	public void deleteChat(Integer chatId, Integer userId) throws ChatException, UserException {
 		Optional<Chat> opt=chatRepository.findById(chatId);

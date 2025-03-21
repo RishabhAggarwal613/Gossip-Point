@@ -1,12 +1,23 @@
 package com.gossip_point.app.response;
 
-public class AuthResponse {
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
-	private String jwt;
-	private boolean isAuth;
-	public AuthResponse(String jwt, boolean isAuth) {
-		super();
-		this.jwt = jwt;
-		this.isAuth = isAuth;
-	}
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+public class AuthResponse {
+    private String token;
+    private boolean success;
+    private String message;
+
+    public AuthResponse(String messageOrToken, boolean success, boolean isToken) {
+        this.success = success;
+        if (isToken) {
+            this.token = messageOrToken;
+        } else {
+            this.message = messageOrToken;
+        }
+    }
 }
